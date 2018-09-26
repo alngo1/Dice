@@ -1,6 +1,7 @@
 Die one;
 int dotSize = 30;
 
+
 void setup()
 {
 	size(300, 300);
@@ -38,10 +39,56 @@ class Die //models one single dice cube
 		//your code here
 		fill(#FFFFFF);
 		rect(myX, myY, size, size);
-		for(int x = 150; x <= value; x++)
-		{
-			fill(0);
-			ellipse(x,150,dotSize,dotSize);
-		}
+		fill(0);
+		ellipse(110, 120, dotSize, dotSize);
+		ellipse(175, 125, dotSize, dotSize);
+		ellipse(125, 175, dotSize, dotSize);
+		ellipse(175, 175, dotSize, dotSize);
+		ellipse(175, 150, dotSize, dotSize);
+		ellipse(125, 150, dotSize, dotSize);
 	}
 }
+
+/*
+void oneDot()
+{
+	ellipse(150,150,dotSize,dotSize);
+}
+
+void twoDot()
+{
+	ellipse(125,150,dotSize,dotSize);
+	ellipse(175,150,dotSize,dotSize);
+}
+void threeDot()
+{
+	ellipse(150,150,dotSize,dotSize);
+	ellipse(200,150,dotSize,dotSize);
+	ellipse(100,150,dotSize,dotSize);
+}
+
+void fourDot()
+{
+	ellipse(125, 125, dotSize, dotSize);
+	ellipse(175, 125, dotSize, dotSize);
+	ellipse(125, 175, dotSize, dotSize);
+	ellipse(175, 175, dotSize, dotSize);
+}
+
+void fiveDot()
+{
+	ellipse(125, 125, dotSize, dotSize);
+	ellipse(175, 125, dotSize, dotSize);
+	ellipse(125, 175, dotSize, dotSize);
+	ellipse(175, 175, dotSize, dotSize);
+	ellipse(150, 150, dotSize, dotSize);
+}
+
+for(int y = 0; y <= 2; y++)
+		{
+			for(int x = 0; x <= )
+			{
+				ellipse(x,y,dotSize,dotSize);
+			}
+		}
+*/
