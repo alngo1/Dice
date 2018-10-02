@@ -1,20 +1,27 @@
 Die one;
 int dotSize = 30;
-
+int sum = 0;
 
 void setup()
 {
-	size(300, 300);
+	size(1350, 400);
 	noLoop();
 }
 void draw()
 {
 	background(197);
-	one = new Die(75, 75);
-	one.show();
+	for(int i = 0; i < 1350; i+=150)
+	{
+		one = new Die(i, 0, 150);
+		sum+=one.value;
+		System.out.println(one.value);
+		one.show();
+	}
+	one.roll();
 }
 void mousePressed()
 {
+	sum = 0;
 	redraw();
 }
 class Die //models one single dice cube
@@ -22,73 +29,61 @@ class Die //models one single dice cube
 	//variable declarations here
 	int myX, myY, size, value;
 	
-	Die(int x, int y) //constructor
+	Die(int x, int y, int z) //constructor
 	{
 		//variable initializations here
 		myX = x;
 		myY = y;
-		size = 150;
+		size = z;
+		value = (int)(Math.random()*6)+1;
 	}
 	void roll()
 	{
 		//your code here
-		value = 2;
+		text("Total: " + sum, 300, 300);
+
 	}
 	void show()
 	{
 		//your code here
+
 		fill(#FFFFFF);
 		rect(myX, myY, size, size);
 		fill(0);
-		ellipse(110, 120, dotSize, dotSize);
-		ellipse(175, 125, dotSize, dotSize);
-		ellipse(125, 175, dotSize, dotSize);
-		ellipse(175, 175, dotSize, dotSize);
-		ellipse(175, 150, dotSize, dotSize);
-		ellipse(125, 150, dotSize, dotSize);
-	}
-}
-
-/*
-void oneDot()
-{
-	ellipse(150,150,dotSize,dotSize);
-}
-
-void twoDot()
-{
-	ellipse(125,150,dotSize,dotSize);
-	ellipse(175,150,dotSize,dotSize);
-}
-void threeDot()
-{
-	ellipse(150,150,dotSize,dotSize);
-	ellipse(200,150,dotSize,dotSize);
-	ellipse(100,150,dotSize,dotSize);
-}
-
-void fourDot()
-{
-	ellipse(125, 125, dotSize, dotSize);
-	ellipse(175, 125, dotSize, dotSize);
-	ellipse(125, 175, dotSize, dotSize);
-	ellipse(175, 175, dotSize, dotSize);
-}
-
-void fiveDot()
-{
-	ellipse(125, 125, dotSize, dotSize);
-	ellipse(175, 125, dotSize, dotSize);
-	ellipse(125, 175, dotSize, dotSize);
-	ellipse(175, 175, dotSize, dotSize);
-	ellipse(150, 150, dotSize, dotSize);
-}
-
-for(int y = 0; y <= 2; y++)
+		if(value == 1)
 		{
-			for(int x = 0; x <= )
-			{
-				ellipse(x,y,dotSize,dotSize);
-			}
+			ellipse(myX + size/2, myY + 75,dotSize,dotSize);
+		}else if(value == 2)
+		{
+			ellipse(myX + 50, myY + 75, dotSize, dotSize);
+			ellipse(myX + 100, myY + 75, dotSize, dotSize);
+		}else if(value == 3)
+		{
+			ellipse(myX + 75,myY + 75,dotSize,dotSize);
+			ellipse(myX + 125,myY + 75,dotSize,dotSize);
+			ellipse(myX + 25,myY + 75,dotSize,dotSize);
+		}else if(value == 4)
+		{
+			ellipse(myX + 50, myY + 50, dotSize, dotSize);
+			ellipse(myX + 100, myY + 50, dotSize, dotSize);
+			ellipse(myX + 50, myY + 100, dotSize, dotSize);
+			ellipse(myX + 100, myY + 100, dotSize, dotSize);
+		}else if(value == 5)
+		{
+			ellipse(myX + 50, myY + 50, dotSize, dotSize);
+			ellipse(myX + 100, myY + 50, dotSize, dotSize);
+			ellipse(myX + 50, myY + 100, dotSize, dotSize);
+			ellipse(myX + 100, myY + 100, dotSize, dotSize);
+			ellipse(myX + 75, myY + 75, dotSize, dotSize);
+		}else
+		{
+			ellipse(myX + 45, myY + 45, dotSize, dotSize);
+			ellipse(myX + 105, myY + 45, dotSize, dotSize);
+			ellipse(myX + 45, myY + 105, dotSize, dotSize);
+			ellipse(myX + 105, myY + 105, dotSize, dotSize);
+			ellipse(myX + 105, myY + 75, dotSize, dotSize);
+			ellipse(myX + 45, myY + 75, dotSize, dotSize);
 		}
-*/
+	}
+
+}
