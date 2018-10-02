@@ -1,18 +1,17 @@
 Die one;
-int dotSize = 30;
 int sum = 0;
 
 void setup()
 {
-	size(1350, 400);
+	size(450, 400);
 	noLoop();
 }
 void draw()
 {
 	background(197);
-	for(int i = 0; i < 1350; i+=150)
+	for(int i = 0; i < 450; i+=50)
 	{
-		one = new Die(i, 0, 150);
+		one = new Die(i, 0, 50, 10);
 		sum+=one.value;
 		System.out.println(one.value);
 		one.show();
@@ -27,20 +26,21 @@ void mousePressed()
 class Die //models one single dice cube
 {
 	//variable declarations here
-	int myX, myY, size, value;
+	int myX, myY, size, value, dotSize;
 	
-	Die(int x, int y, int z) //constructor
+	Die(int x, int y, int z, int s) //constructor
 	{
 		//variable initializations here
 		myX = x;
 		myY = y;
 		size = z;
+		dotSize = s;
 		value = (int)(Math.random()*6)+1;
 	}
 	void roll()
 	{
 		//your code here
-		text("Total: " + sum, 300, 300);
+		text("Total: " + sum, 0, 100);
 
 	}
 	void show()
@@ -52,37 +52,37 @@ class Die //models one single dice cube
 		fill(0);
 		if(value == 1)
 		{
-			ellipse(myX + size/2, myY + 75,dotSize,dotSize);
+			ellipse(myX + size/2, myY + size/2,dotSize,dotSize);
 		}else if(value == 2)
 		{
-			ellipse(myX + 50, myY + 75, dotSize, dotSize);
-			ellipse(myX + 100, myY + 75, dotSize, dotSize);
+			ellipse(myX + size/2 - dotSize, myY + size/2, dotSize, dotSize);
+			ellipse(myX + size/2+ dotSize, myY + size/2, dotSize, dotSize);
 		}else if(value == 3)
 		{
-			ellipse(myX + 75,myY + 75,dotSize,dotSize);
-			ellipse(myX + 125,myY + 75,dotSize,dotSize);
-			ellipse(myX + 25,myY + 75,dotSize,dotSize);
+			ellipse(myX + size/2,myY + size/2,dotSize,dotSize);
+			ellipse(myX + size/2 + dotSize - 5,myY + size/2 -dotSize,dotSize,dotSize);
+			ellipse(myX + size/2 - dotSize + 5,myY + size/2 +dotSize,dotSize,dotSize);
 		}else if(value == 4)
 		{
-			ellipse(myX + 50, myY + 50, dotSize, dotSize);
-			ellipse(myX + 100, myY + 50, dotSize, dotSize);
-			ellipse(myX + 50, myY + 100, dotSize, dotSize);
-			ellipse(myX + 100, myY + 100, dotSize, dotSize);
+			ellipse(myX + size/2 - dotSize, myY + size/2 - dotSize, dotSize, dotSize);
+			ellipse(myX + size/2 + dotSize, myY + size/2 - dotSize, dotSize, dotSize);
+			ellipse(myX + size/2 - dotSize, myY + size/2 + dotSize, dotSize, dotSize);
+			ellipse(myX + size/2 + dotSize, myY + size/2 + dotSize, dotSize, dotSize);
 		}else if(value == 5)
 		{
-			ellipse(myX + 50, myY + 50, dotSize, dotSize);
-			ellipse(myX + 100, myY + 50, dotSize, dotSize);
-			ellipse(myX + 50, myY + 100, dotSize, dotSize);
-			ellipse(myX + 100, myY + 100, dotSize, dotSize);
-			ellipse(myX + 75, myY + 75, dotSize, dotSize);
+			ellipse(myX + size/2 - dotSize, myY + size/2 - dotSize, dotSize, dotSize);
+			ellipse(myX + size/2 + dotSize, myY + size/2 - dotSize, dotSize, dotSize);
+			ellipse(myX + size/2 - dotSize, myY + size/2 + dotSize, dotSize, dotSize);
+			ellipse(myX + size/2 + dotSize, myY + size/2 + dotSize, dotSize, dotSize);
+			ellipse(myX + size/2, myY + size/2, dotSize, dotSize);
 		}else
 		{
-			ellipse(myX + 45, myY + 45, dotSize, dotSize);
-			ellipse(myX + 105, myY + 45, dotSize, dotSize);
-			ellipse(myX + 45, myY + 105, dotSize, dotSize);
-			ellipse(myX + 105, myY + 105, dotSize, dotSize);
-			ellipse(myX + 105, myY + 75, dotSize, dotSize);
-			ellipse(myX + 45, myY + 75, dotSize, dotSize);
+			ellipse(myX + size/2 - dotSize, myY + size/2 - dotSize, dotSize, dotSize);
+			ellipse(myX + size/2 + dotSize, myY + size/2 - dotSize, dotSize, dotSize);
+			ellipse(myX + size/2 - dotSize, myY + size/2 + dotSize, dotSize, dotSize);
+			ellipse(myX + size/2 + dotSize, myY + size/2 + dotSize, dotSize, dotSize);
+			ellipse(myX + size/2 + dotSize, myY + size/2, dotSize, dotSize);
+			ellipse(myX + size/2 - dotSize, myY + size/2, dotSize, dotSize);
 		}
 	}
 
