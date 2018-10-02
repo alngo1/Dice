@@ -9,13 +9,15 @@ void setup()
 void draw()
 {
 	background(197);
-	for(int i = 0; i < 450; i+=50)
-	{
-		one = new Die(i, 0, 50, 10);
-		sum+=one.value;
-		System.out.println(one.value);
-		one.show();
-	}
+        for(int j = 0; j < 180; j+=60)
+        {
+        	for(int i = 0; i < 150; i+=60)
+        	{
+        		one = new Die(i, j, 50, 10);
+        		sum+=one.value;
+        		one.show();
+        	}
+        }
 	one.roll();
 }
 void mousePressed()
@@ -40,7 +42,7 @@ class Die //models one single dice cube
 	void roll()
 	{
 		//your code here
-		text("Total: " + sum, 0, 100);
+		text("Total: " + sum, 0, 300);
 
 	}
 	void show()
